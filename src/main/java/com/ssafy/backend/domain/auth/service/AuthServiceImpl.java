@@ -1,4 +1,4 @@
-package com.ssafy.backend.auth.service;
+package com.ssafy.backend.domain.auth.service;
 
 public class AuthServiceImpl implements AuthService{
 

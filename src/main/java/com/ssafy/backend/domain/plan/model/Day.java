@@ -18,5 +18,5 @@ public class Day {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "plan_id")
-	private Plan plan_id;
+	private Plan plan;
 }

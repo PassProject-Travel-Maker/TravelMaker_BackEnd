@@ -24,10 +24,11 @@ public class Plan {
 	private Long id;
 	
 	private String title;
+
 	private String description;
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_id")
-	private Member member_id;
+	private Member member;
 
 }

@@ -21,11 +21,13 @@ public class Board {
 	
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "member_id")
-	private Member member_id;
+	private Member member;
 	
 	private String title;
 	private String contents;
 	private int hit;
-	private LocalDate registertime;
+
+	@Column(name = "register_time")
+	private LocalDate registerTime;
 
 }

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ssafy.backend.auth.mapper.AuthMapper">
+<mapper namespace="com.ssafy.backend.domain.auth.mapper.AuthMapper">
 	<!-- 회원가입 -->
-	<insert id="join" parameterType="member">
+	<insert id="join" parameterType="com.ssafy.backend.domain.auth.dto.MemberDto.JoinRequestDto">
 		insert into member
-		(id, password, name)
+		(id, password, name, nickname, email, addr)
 		values
-		(#{id}, #{password}, #{name})
+		(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{addr})
 	</insert>
 
 	<!-- 로그인 -->
-	<select id="findById" parameterType="string" resultType="member">
-		select id, password, name, role
+	<select id="findById" parameterType="string" resultType="com.ssafy.backend.domain.auth.dto.MemberDto.findMemberResponseDto">
+		select id, password, name
 		from member
 		where id=#{id}
 	</select>

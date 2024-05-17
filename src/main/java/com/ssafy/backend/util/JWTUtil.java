@@ -3,6 +3,7 @@ package com.ssafy.backend.util;
 import com.ssafy.backend.domain.auth.dto.MemberDto.*;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,7 +22,7 @@ public class JWTUtil {
 
     //application.properties에 등록된 변수
     public SecretKey getSecretKey() {
-    	return Keys.hmacShaKeyFor(secretKeyPlain.getBytes());
+        return Keys.hmacShaKeyFor(secretKeyPlain.getBytes());
     }
     
     // 토큰 생성
@@ -34,7 +35,8 @@ public class JWTUtil {
                 .claim("name", member.getName())
 //                .claim("role", member.getRole())
                 .expiration(expiration)				//만료 시간
-                .signWith(getSecretKey())
+//                .signWith(getSecretKey())
+                .signWith(getSecretKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
 

@@ -21,7 +21,7 @@ public class WebConfig implements WebMvcConfigurer{
 		// 검증된 사용자만 boards?
 		registry
 		.addInterceptor(authInterceptor)
-		.addPathPatterns("/boards/**");
+		.addPathPatterns("/member/**");
 	}
 	
 	// ws에서 들어오는 요청을 허용
@@ -31,8 +31,8 @@ public class WebConfig implements WebMvcConfigurer{
 		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
 		.allowedMethods("POST");
 		
-//		registry.addMapping("/boards/**")
-//		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
-//		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
+		registry.addMapping("/member/**")
+		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
+		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
 	}
 }

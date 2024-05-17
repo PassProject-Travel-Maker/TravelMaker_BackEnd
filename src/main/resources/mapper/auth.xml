@@ -2,12 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ssafy.backend.domain.*.mapper.AuthMapper">
+<mapper namespace="com.ssafy.backend.domain.auth.mapper.AuthMapper">
 	<!-- 회원가입 -->
-	<!-- TODO: parameterType 수정 필요 -->
-	<insert id="join" parameterType="MemberDto">
+	<insert id="join" parameterType="com.ssafy.backend.domain.auth.dto.MemberDto$TestDto">
 		insert into member
-		(id, password, name)
+		(member_id, password, name)
 		values
 		(#{id}, #{password}, #{name})
 	</insert>

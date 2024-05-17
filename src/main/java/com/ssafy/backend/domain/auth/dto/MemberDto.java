@@ -4,6 +4,13 @@ import com.ssafy.backend.domain.auth.model.Member;
 import lombok.*;
 
 public class MemberDto {
+	
+	@Data
+	public static class TestDto {
+		private String id;
+		private String password;
+		private String name;
+	}
 
     @Getter
     @Setter

@@ -25,7 +25,7 @@ public class JWTUtil {
     }
     
     // 토큰 생성
-    public String generateToken(JoinRequestDto member) {
+    public String generateToken(TestDto member) {
         Date now = new Date();
         Date expiration = new Date(now.getTime() + EXPIRATION_SECONDS * 1000);
 

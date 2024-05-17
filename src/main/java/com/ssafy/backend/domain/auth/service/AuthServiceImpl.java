@@ -39,11 +39,9 @@ public class AuthServiceImpl implements AuthService {
 	public String login(LoginRequestDto loginInfo) {
 		String id = loginInfo.getId();
 		String password = loginInfo.getPassword();
-		System.out.println("id:" + id);
-		System.out.println("password: " + password);
 		
 		// 유효한 아이디인지 조회
-		TestResponseDto member = authMapper.findById(id);
+		FindMemberByIdDto member = authMapper.findById(id);
 		System.out.println("member: " + member);
 		if(member==null || !passwordEncoder.matches(password, member.getPassword()) ) return null;
 		

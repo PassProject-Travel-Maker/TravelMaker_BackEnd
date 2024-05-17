@@ -33,6 +33,7 @@ public class AuthController {
 	@PostMapping("/login")
 //		@ResponseBody
 	public ResponseEntity<?> login(@RequestBody LoginRequestDto loginInfo) {
+		System.out.println(loginInfo.getId() + " " + loginInfo.getPassword());
 		String token = authService.login(loginInfo);
 
 		if (token == null)

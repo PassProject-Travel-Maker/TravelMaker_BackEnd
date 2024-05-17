@@ -4,10 +4,17 @@
 
 <mapper namespace="com.ssafy.backend.domain.auth.mapper.AuthMapper">
 	<!-- 회원가입 -->
-	<insert id="join" parameterType="com.ssafy.backend.domain.auth.dto.MemberDto$TestDto">
+	<insert id="join" parameterType="com.ssafy.backend.domain.auth.dto.MemberDto$JoinRequestDto">
 		insert into member
-		(member_id, password, name)
+		(member_id, password, name, nickname, email, addr)
 		values
-		(#{id}, #{password}, #{name})
+		(#{id}, #{password}, #{name}, #{nickname}, #{email}, #{addr})
 	</insert>
+	
+	<!-- 로그인 -->
+	<select id="findById" parameterType="string" resultType="com.ssafy.backend.domain.auth.dto.MemberDto$TestResponseDto">
+		select member_id, password, name
+		from member
+		where member_id=#{id}
+	</select>
 </mapper>

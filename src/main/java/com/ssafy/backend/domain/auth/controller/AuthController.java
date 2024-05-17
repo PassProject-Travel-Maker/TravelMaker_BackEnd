@@ -20,12 +20,26 @@ public class AuthController {
 
 	// 회원 가입
 	@PostMapping("/join")
-	public ResponseEntity<?> join(@RequestBody TestDto joinInfo) {
-		String token = authService.join(joinInfo);
+	public ResponseEntity<?> join(@RequestBody JoinRequestDto joinRequestDto) {
+		String token = authService.join(joinRequestDto);
 
 		if (token == null)
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("회원가입 실패");
 
 		return ResponseEntity.ok(token);
 	}
+	
+	//로그인
+		@PostMapping("/login")
+//		@ResponseBody
+		public ResponseEntity<?> login(@RequestBody TestDto loginInfo){
+			String token = authService.login(loginInfo);
+
+			if(token == null ) return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("아이디 또는 비밀번호가 잘못되었습니다.");
+			
+			return ResponseEntity.ok(token);
+			
+//			TokenDto tokenDto = new TokenDto(token);
+//			return ResponseEntity.ok(tokenDto);
+		}
 }

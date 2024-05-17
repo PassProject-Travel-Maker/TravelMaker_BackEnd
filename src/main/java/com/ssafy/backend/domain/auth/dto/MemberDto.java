@@ -9,7 +9,32 @@ public class MemberDto {
 	public static class TestDto {
 		private String id;
 		private String password;
+//		private String name;
+	}
+	
+	@Data
+	public static class TestResponseDto {
+		private String id;
+		private String password;
 		private String name;
+//		private String nickname;
+//		private String email;
+//		private String addr;
+	}
+	
+	@Getter
+	@Builder
+	@AllArgsConstructor
+	public static class GenerateTokenDto {
+		private String id;
+		private String name;
+		
+		public Member toEntity() {
+			return Member.builder()
+					.id(this.getId())
+					.name(this.name)
+					.build();
+		}
 	}
 
     @Getter
@@ -35,6 +60,21 @@ public class MemberDto {
                     .addr(this.getAddr())
                     .build();
         }
+    }
+    
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    public static class LoginRequestDto {
+    	private String id;
+    	private String password;
+    	
+    	public Member toEntity() {
+    		return Member.builder()	
+    				.id(this.id)
+    				.password(this.password)
+    				.build();
+    	}
     }
 
     @Getter

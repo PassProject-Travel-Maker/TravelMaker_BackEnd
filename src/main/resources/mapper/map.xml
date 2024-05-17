@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.backend.domain.map.mapper.MapMapper">
+	<select id="sido"
+		resultType="com.ssafy.backend.domain.map.dto.SidoDto$SidoInfoDto">
+		select
+		sido_code as sidoCode,
+		sido_name as sidoName
+		from sido
+	</select>
+
+	<select id="gugun" parameterType="string"
+		resultType="com.ssafy.backend.domain.map.dto.GugunDto$GugunInfoDto">
+		select
+		gugun_code as gugunCode,
+		gugun_name as gugunName,
+		sido_code as sidoCode
+		from gugun
+		where sido_code = #{sidoCode}
+	</select>
+
+	<select id="attractionInfo" parameterType="string"
+		resultType="com.ssafy.backend.domain.map.dto.AttractionDto$AttractioninfoDto">
+		SELECT attraction_id as id, category_code as categoryCode, gugun_code as
+		gugunCode, sido_code as sidoCode, title, addr, img, hit, recommend,
+		latitude, longitude FROM attraction <where>
+			<if test='areaCode != null and areaCode != "0"'>
+				AND sido_code = #{areaCode}
+			</if>
+			<if test='gugunCode != null and gugunCode != "0"'>
+				AND gugun_code = #{gugunCode}
+			</if>
+			<if test='contentTypeId != null and contentTypeId != "0"'>
+				AND category_code = #{contentTypeId}
+			</if>
+			<if test='keyword != null'>
+				AND title LIKE CONCAT('%', #{keyword}, '%')
+			</if>
+		</where>
+    <choose>
+			<when
+				test='areaCode == "0" or gugunCode == "0" or contentTypeId == "0" or keyword == null'>
+		LIMIT 30
+			</when>
+			<otherwise>
+				LIMIT 100
+			</otherwise>
+		</choose>
+	</select>
+
+	<select id="attractionDescription" parameterType="string"
+		resultType="com.ssafy.backend.domain.map.dto.AttractionDto$AttractionDescriptionDto">
+		select
+		attraction_id as Id,
+		category_code as categoryCode,
+		title,
+		addr,
+		img
+		from attraction
+		where attraction_id = #{contentId}
+	</select>
+
+</mapper>

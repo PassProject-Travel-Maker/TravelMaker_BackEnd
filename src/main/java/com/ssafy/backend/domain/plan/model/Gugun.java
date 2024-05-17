@@ -19,4 +19,5 @@ public class Gugun {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "sido_code")
     private Sido sido;
+    
 }

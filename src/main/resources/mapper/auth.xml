@@ -12,7 +12,7 @@
 	</insert>
 	
 	<!-- 로그인 -->
-	<select id="findById" parameterType="string" resultType="com.ssafy.backend.domain.auth.dto.MemberDto$TestResponseDto">
+	<select id="findById" parameterType="string" resultType="com.ssafy.backend.domain.auth.dto.MemberDto$LoginRequestDto">
 		select member_id, password, name
 		from member
 		where member_id=#{id}

@@ -36,7 +36,7 @@ public class AuthServiceImpl implements AuthService {
 	}
 
 	@Override
-	public String login(TestDto loginInfo) {
+	public String login(LoginRequestDto loginInfo) {
 		String id = loginInfo.getId();
 		String password = loginInfo.getPassword();
 		System.out.println("id:" + id);

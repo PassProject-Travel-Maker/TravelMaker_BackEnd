@@ -2,10 +2,9 @@ package com.ssafy.backend.domain.board.model;
 
 import java.time.LocalDate;
 
-import com.ssafy.backend.domain.auth.model.Member;
+import com.ssafy.backend.domain.member.model.Member;
 
 import jakarta.persistence.*;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

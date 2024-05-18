@@ -22,7 +22,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/map")
-@CrossOrigin(origins = "*")
 public class MapController extends HttpServlet {
 	private final MapService mapService;
 

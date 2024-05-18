@@ -1,7 +1,6 @@
 package com.ssafy.backend.domain.auth.controller;
 
-import com.ssafy.backend.domain.auth.dto.MemberDto.*;
-import com.ssafy.backend.domain.auth.model.Member;
+import com.ssafy.backend.domain.auth.dto.AuthDto.*;
 import com.ssafy.backend.domain.auth.service.AuthService;
 
 import lombok.RequiredArgsConstructor;
@@ -33,7 +32,7 @@ public class AuthController {
 	@PostMapping("/login")
 //		@ResponseBody
 	public ResponseEntity<?> login(@RequestBody LoginRequestDto loginInfo) {
-		System.out.println(loginInfo.getId() + " " + loginInfo.getPassword());
+		System.out.println(loginInfo.getId());
 		String token = authService.login(loginInfo);
 
 		if (token == null)

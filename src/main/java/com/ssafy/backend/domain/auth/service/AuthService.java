@@ -1,7 +1,6 @@
 package com.ssafy.backend.domain.auth.service;
 
-import com.ssafy.backend.domain.auth.dto.MemberDto.*;
-import com.ssafy.backend.domain.auth.model.Member;
+import com.ssafy.backend.domain.auth.dto.AuthDto.*;
 
 public interface AuthService {
 	String join(JoinRequestDto joinInfo);

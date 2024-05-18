@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer{
 	private final AuthInterceptor authInterceptor;
-	
+
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// 검증된 사용자만 boards?
@@ -23,15 +23,19 @@ public class WebConfig implements WebMvcConfigurer{
 		.addInterceptor(authInterceptor)
 		.addPathPatterns("/member/**");
 	}
-	
+
 	// ws에서 들어오는 요청을 허용
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/auth/**")
 		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
 		.allowedMethods("POST");
-		
+
 		registry.addMapping("/member/**")
+		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
+		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
+
+		registry.addMapping("/map/**")
 		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
 		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
 	}

@@ -1,9 +1,9 @@
 package com.ssafy.backend.domain.auth.dto;
 
-import com.ssafy.backend.domain.auth.model.Member;
+import com.ssafy.backend.domain.member.model.Member;
 import lombok.*;
 
-public class MemberDto {
+public class AuthDto {
 	
 	@Data
 	public static class TestDto {

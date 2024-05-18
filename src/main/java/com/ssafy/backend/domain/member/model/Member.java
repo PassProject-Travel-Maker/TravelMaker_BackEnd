@@ -1,4 +1,4 @@
-package com.ssafy.backend.domain.auth.model;
+package com.ssafy.backend.domain.member.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

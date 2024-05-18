@@ -1,6 +1,6 @@
 package com.ssafy.backend.util;
 
-import com.ssafy.backend.domain.auth.dto.MemberDto.*;
+import com.ssafy.backend.domain.auth.dto.AuthDto.*;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;

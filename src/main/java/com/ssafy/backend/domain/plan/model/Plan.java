@@ -1,6 +1,6 @@
 package com.ssafy.backend.domain.plan.model;
 
-import com.ssafy.backend.domain.auth.model.Member;
+import com.ssafy.backend.domain.member.model.Member;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

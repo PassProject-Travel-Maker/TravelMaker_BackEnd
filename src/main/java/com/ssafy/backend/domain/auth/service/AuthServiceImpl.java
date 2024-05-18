@@ -1,14 +1,11 @@
 package com.ssafy.backend.domain.auth.service;
 
-import java.sql.SQLException;
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.ssafy.backend.domain.auth.dto.MemberDto.*;
+import com.ssafy.backend.domain.auth.dto.AuthDto.*;
 import com.ssafy.backend.domain.auth.mapper.AuthMapper;
-import com.ssafy.backend.domain.auth.model.Member;
 import com.ssafy.backend.util.JWTUtil;
 
 import lombok.RequiredArgsConstructor;
@@ -42,7 +39,7 @@ public class AuthServiceImpl implements AuthService {
 		
 		// 유효한 아이디인지 조회
 		FindMemberByIdDto member = authMapper.findById(id);
-		System.out.println("member: " + member);
+		System.out.println("member: " + member.getId());
 		if(member==null || !passwordEncoder.matches(password, member.getPassword()) ) return null;
 		
 		//토큰 만들어서 반환

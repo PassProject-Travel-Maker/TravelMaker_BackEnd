@@ -12,8 +12,8 @@ public class MemberServiceImpl implements MemberService{
     private final MemberMapper memberMapper;
 
     @Override
-    public TestRespDto myInfo(String id) {
-        TestRespDto memberById = memberMapper.findById(id);
+    public MyInfoDto myInfo(String id) {
+        MyInfoDto memberById = memberMapper.findById(id);
         return memberById;
     }
 }

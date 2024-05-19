@@ -30,7 +30,7 @@ public class MemberController {
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("검증되지 않은 사용자입니다.");
 
 		// service에서 member 정보 조회
-		TestRespDto testRespDto = memberService.myInfo(id);
+		MyInfoDto testRespDto = memberService.myInfo(id);
 		if(testRespDto == null)
 			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("사용자를 찾을 수 없습니다.");
 

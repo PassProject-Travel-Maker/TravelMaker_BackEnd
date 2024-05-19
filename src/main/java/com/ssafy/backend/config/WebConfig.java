@@ -28,15 +28,19 @@ public class WebConfig implements WebMvcConfigurer{
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
 		registry.addMapping("/auth/**")
-		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
-		.allowedMethods("POST");
+				.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
+				.allowedMethods("POST");
 
 		registry.addMapping("/member/**")
-		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
-		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
+				.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
+				.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
 
 		registry.addMapping("/map/**")
-		.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
-		.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
+				.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
+				.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
+
+		registry.addMapping("/plan/**")
+				.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
+				.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
 	}
 }

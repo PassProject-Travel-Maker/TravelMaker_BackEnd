@@ -13,7 +13,7 @@ public class MemberDto {
     @Setter
     @Builder
     @AllArgsConstructor
-    public static class TestRespDto {
+    public static class MyInfoDto {
         private String id;
         private String name;
         private String nickname;

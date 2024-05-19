@@ -34,4 +34,18 @@
         DELETE FROM plan
         WHERE plan_id = #{planId}
     </delete>
+
+    <select id="findByMemberId" parameterType="string" resultType="com.ssafy.backend.domain.plan.dto.PlanDto$PlanIdDto">
+        select plan_id as id
+        from plan
+        where member_id = #{memberId}
+    </select>
+
+    <delete id="deleteAll" parameterType="list">
+        DELETE FROM plan
+        WHERE plan_id IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item.id}
+        </foreach>
+    </delete>
 </mapper>

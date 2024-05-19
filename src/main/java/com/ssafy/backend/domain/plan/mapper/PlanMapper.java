@@ -15,4 +15,9 @@ public interface PlanMapper {
     PlanDetailDto findById(Long id);
 
     void delete(Long planId);
+
+
+    List<PlanIdDto> findByMemberId(String memberId);
+
+    void deleteAll(List<PlanIdDto> planIdList);
 }

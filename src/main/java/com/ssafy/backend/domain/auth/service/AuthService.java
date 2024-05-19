@@ -7,4 +7,5 @@ public interface AuthService {
 
 	String login(LoginRequestDto loginInfo);
 
+    String deleteMember(String memberId, String password);
 }

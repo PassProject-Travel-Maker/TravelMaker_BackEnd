@@ -3,18 +3,17 @@ package com.ssafy.backend.domain.auth.controller;
 import com.ssafy.backend.domain.auth.dto.AuthDto.*;
 import com.ssafy.backend.domain.auth.service.AuthService;
 
+import com.ssafy.backend.util.JWTUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
 @RequiredArgsConstructor
 public class AuthController {
+	private final JWTUtil jwtUtil;
 	private final AuthService authService;
 
 	// 회원 가입
@@ -42,5 +41,19 @@ public class AuthController {
 
 //			TokenDto tokenDto = new TokenDto(token);
 //			return ResponseEntity.ok(tokenDto);
+	}
+
+	// 회원 탈퇴
+	@DeleteMapping("/delete")
+	public ResponseEntity<?> delete(
+			@RequestHeader("Authorization") String tokenHeader,
+			@RequestBody String password) {
+
+		String memberId = jwtUtil.getIdFromToken(tokenHeader.substring(7));
+		if (memberId == null)
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("유효하지 않은 사용자입니다.");
+
+		String message = authService.deleteMember(memberId, password);
+		return ResponseEntity.ok(message);
 	}
 }

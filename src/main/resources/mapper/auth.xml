@@ -17,4 +17,10 @@
 		from member
 		where member_id=#{id}
 	</select>
+
+	<!-- 회원 탈퇴 -->
+	<delete id="delete" parameterType="string">
+		DELETE FROM member
+		WHERE member_id = #{memberId}
+	</delete>
 </mapper>

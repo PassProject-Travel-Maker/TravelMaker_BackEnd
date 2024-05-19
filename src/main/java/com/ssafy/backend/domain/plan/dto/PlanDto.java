@@ -96,4 +96,12 @@ public class PlanDto {
                     .build();
         }
     }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class PlanIdDto {
+        private Long id;
+    }
 }

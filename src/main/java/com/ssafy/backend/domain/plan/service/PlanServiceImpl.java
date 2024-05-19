@@ -88,4 +88,26 @@ public class PlanServiceImpl implements PlanService {
         List<MyPlanDto> myPlanDtoList = planMapper.getMyPlan(memberId);
         return myPlanDtoList;
     }
+
+    @Override
+    public PlanDetailResponseDto planDetail(Long id) {
+        // 1. get Plan detail
+        Plan plan = planMapper.findById(id).toEntity();
+
+        // 2. get Day detail
+        List<DayDetailResponseDto> dayDetailResponseDtoList = dayMapper.getDayDetailList(plan.getId());
+
+        // 3. get Schedule detail
+        for (DayDetailResponseDto dayDetailResponseDto : dayDetailResponseDtoList) {
+            Long dayId = dayDetailResponseDto.getId();
+            List<ScheduleDetailResponseDto> scheduleDetailResponseDtoList
+                    = scheduleMapper.getScheduleDetailList(dayId);
+            dayDetailResponseDto.setScheduleDetailResponseDtoList(scheduleDetailResponseDtoList);
+        }
+
+        // return
+        PlanDetailResponseDto planDetailResponseDto
+                = new PlanDetailResponseDto().toResponseDto(plan, dayDetailResponseDtoList);
+        return planDetailResponseDto;
+    }
 }

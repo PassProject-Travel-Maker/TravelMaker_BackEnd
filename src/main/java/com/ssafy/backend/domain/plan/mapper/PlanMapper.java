@@ -10,4 +10,7 @@ public interface PlanMapper {
     void insertPlan(Plan plan);
 
     List<MyPlanDto> getMyPlan(String memberId);
+
+
+    PlanDetailDto findById(Long id);
 }

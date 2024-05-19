@@ -31,4 +31,22 @@ public class ScheduleDto {
                     .build();
         }
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ScheduleDetailResponseDto {
+        private Long id;
+        private int orderIndex;
+
+        public ScheduleDetailResponseDto toResponseDto(Schedule schedule) {
+            return ScheduleDetailResponseDto.builder()
+                    .id(schedule.getId())
+                    .orderIndex(schedule.getOrder())
+                    .build();
+        }
+
+    }
+
 }

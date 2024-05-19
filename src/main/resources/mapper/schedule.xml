@@ -10,4 +10,16 @@
             (#{schedule.day.id}, #{schedule.attraction.id}, #{schedule.order})
         </foreach>
     </insert>
+
+    <select id="getScheduleDetailList" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.ScheduleDto$ScheduleDetailResponseDto">
+        select
+            schedule_id as id,
+            `order` as orderIndex,
+            day_id as day,
+            attraction_id as attraction
+        from
+            schedule
+        where
+            day_id = #{dayId}
+    </select>
 </mapper>

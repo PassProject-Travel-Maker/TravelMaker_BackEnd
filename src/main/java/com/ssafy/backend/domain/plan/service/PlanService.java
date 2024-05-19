@@ -8,4 +8,6 @@ public interface PlanService {
     void createPlan(String memberId, CreatePlanRequestDto createPlanRequestDto);
 
     List<MyPlanDto> myPlanList(String memberId);
+
+    PlanDetailResponseDto planDetail(Long id);
 }

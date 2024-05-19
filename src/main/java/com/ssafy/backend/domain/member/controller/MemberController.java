@@ -43,7 +43,7 @@ public class MemberController {
 	}
 
 	// 내 여행 계획 조회
-	@GetMapping("/myTravel/{id}")
+	@GetMapping("/myTravelList/{id}")
 	public ResponseEntity<?> myTravel(
 			@PathVariable("id") String id,
 			@RequestHeader("Authorization") String tokenHeader) {

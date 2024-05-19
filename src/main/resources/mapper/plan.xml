@@ -24,4 +24,9 @@
             member_id = #{memberId}
     </select>
 
+    <select id="findById" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.PlanDto$PlanDetailDto">
+        select plan_id as id, title, description, img_url as imgUrl, member_id as member
+        from plan
+        where plan_id=#{id}
+    </select>
 </mapper>

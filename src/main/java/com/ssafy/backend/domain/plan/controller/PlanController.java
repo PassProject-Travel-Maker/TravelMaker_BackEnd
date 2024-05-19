@@ -1,6 +1,7 @@
 package com.ssafy.backend.domain.plan.controller;
 
 import com.ssafy.backend.domain.plan.dto.PlanDto.*;
+import com.ssafy.backend.domain.plan.model.Plan;
 import com.ssafy.backend.domain.plan.service.PlanService;
 import com.ssafy.backend.util.JWTUtil;
 import lombok.RequiredArgsConstructor;
@@ -34,4 +35,19 @@ public class PlanController {
         return ResponseEntity.ok("여행 계획 생성 성공");
     }
 
+    // 특정 여행 계획 조회
+    @GetMapping("/{id}")
+    public ResponseEntity<?> planDetail(
+            @PathVariable("id") Long id,    // planId
+            @RequestHeader("Authorization") String tokenHeader) {
+
+        String memberId = jwtUtil.getIdFromToken(tokenHeader.substring(7));
+        if (memberId == null)
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("검증되지 않은 사용자입니다.");
+
+        // PlanDetailResponseDto
+        PlanDetailResponseDto planDetailResponseDto = planService.planDetail(id);
+
+        return ResponseEntity.ok(planDetailResponseDto);
+    }
 }

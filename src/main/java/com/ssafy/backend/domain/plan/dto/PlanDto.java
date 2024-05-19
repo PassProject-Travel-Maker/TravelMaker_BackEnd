@@ -51,4 +51,49 @@ public class PlanDto {
         private String imgUrl;
         private LocalDateTime createdDate;
     }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class PlanDetailDto {
+        private Long id;
+        private String title;
+        private String description;
+        private String imgUrl;
+        private Member member;
+
+        public Plan toEntity() {
+            return Plan.builder()
+                    .id(this.id)
+                    .title(this.title)
+                    .description(this.description)
+                    .imgUrl(this.imgUrl)
+                    .member(this.member)
+                    .build();
+        }
+
+    }
+
+    @Getter
+    @Builder
+    @AllArgsConstructor
+    @NoArgsConstructor
+    public static class PlanDetailResponseDto {
+        private Long id;
+        private String title;
+        private String description;
+        private String imgUrl;
+        private List<DayDetailResponseDto> dayDetailResponseDtoList;
+
+        public PlanDetailResponseDto toResponseDto(Plan plan, List<DayDetailResponseDto> dayDetailResponseDtoList) {
+            return PlanDetailResponseDto.builder()
+                    .id(plan.getId())
+                    .title(plan.getTitle())
+                    .description(plan.getDescription())
+                    .imgUrl(plan.getImgUrl())
+                    .dayDetailResponseDtoList(dayDetailResponseDtoList)
+                    .build();
+        }
+    }
 }

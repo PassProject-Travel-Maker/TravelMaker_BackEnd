@@ -34,4 +34,23 @@ public class DayDto {
                     .build();
         }
     }
+
+    @Builder
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DayDetailResponseDto {
+        private Long id;
+        private int num;
+        private List<ScheduleDetailResponseDto> scheduleDetailResponseDtoList;
+
+        public DayDetailResponseDto toResponseDto(Day day, List<ScheduleDetailResponseDto> scheduleDetailResponseDtoList) {
+            return DayDetailResponseDto.builder()
+                    .id(day.getId())
+                    .num(day.getNum())
+                    .scheduleDetailResponseDtoList(scheduleDetailResponseDtoList)
+                    .build();
+        }
+    }
 }

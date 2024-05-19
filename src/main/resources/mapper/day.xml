@@ -10,4 +10,14 @@
             (#{day.num}, #{day.plan.id})
         </foreach>
     </insert>
+
+    <select id="getDayDetailList" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.DayDto$DayDetailResponseDto">
+        select
+            day_id as id,
+            num
+        from
+            day
+        where
+            plan_id = #{planId}
+    </select>
 </mapper>

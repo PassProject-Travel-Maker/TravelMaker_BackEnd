@@ -16,6 +16,7 @@ import com.ssafy.backend.domain.plan.model.Plan;
 import com.ssafy.backend.domain.plan.model.Schedule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,12 +31,16 @@ public class PlanServiceImpl implements PlanService {
     private final AttractionMapper attractionMapper;
     private final ScheduleMapper scheduleMapper;
 
-
     @Override
+    @Transactional
     public void createPlan(String memberId, CreatePlanRequestDto createPlanRequestDto) {
 
         // 1. save plan
-        InsertPlanDto insertPlanDto = new InsertPlanDto(createPlanRequestDto.getTitle(), createPlanRequestDto.getDescription());
+        InsertPlanDto insertPlanDto = new InsertPlanDto(
+                createPlanRequestDto.getTitle(),
+                createPlanRequestDto.getDescription(),
+                createPlanRequestDto.getImgUrl());
+
         Member member = memberMapper.findById(memberId).toEntity();
         Plan plan = insertPlanDto.toEntity(member);
         planMapper.insertPlan(plan);
@@ -76,5 +81,11 @@ public class PlanServiceImpl implements PlanService {
              scheduleMapper.insertSchedule(scheduleList);
         }
 
+    }
+
+    @Override
+    public List<MyPlanDto> myPlanList(String memberId) {
+        List<MyPlanDto> myPlanDtoList = planMapper.getMyPlan(memberId);
+        return myPlanDtoList;
     }
 }

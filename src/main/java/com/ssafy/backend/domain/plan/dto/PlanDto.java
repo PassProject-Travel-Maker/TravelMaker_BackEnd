@@ -35,4 +35,8 @@ public class PlanDto {
                     .build();
         }
     }
+
+    public static class myPlanDto {
+
+    }
 }

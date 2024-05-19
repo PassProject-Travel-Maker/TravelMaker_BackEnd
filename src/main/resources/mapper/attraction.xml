@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ssafy.backend.domain.plan.mapper.AttractionMapper">
+    <!-- Attraction 조회 -->
+    <select id="findById" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.Attraction2Dto$AttractionInfoDto">
+        SELECT
+            attraction_id as id,
+            sido_code as sido,
+            gugun_code as gugun,
+            category_code as category,
+            title,
+            addr,
+            img,
+            hit,
+            recommend,
+            latitude,
+            longitude
+        FROM
+            attraction
+        WHERE
+            attraction_id = #{id}
+    </select>
+</mapper>

@@ -1,6 +1,13 @@
 package com.ssafy.backend.domain.map.dto;
 
+import com.ssafy.backend.domain.plan.model.Attraction;
+import com.ssafy.backend.domain.plan.model.Category;
+import com.ssafy.backend.domain.plan.model.Gugun;
+import com.ssafy.backend.domain.plan.model.Sido;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
 
 public class AttractionDto {
 
@@ -18,7 +25,7 @@ public class AttractionDto {
 		private double latitude;
 		private double longitude;
 	}
-	
+
 	@Data
 	public static class AttractionDescriptionDto {
 		private Long Id;

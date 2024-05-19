@@ -4,7 +4,7 @@
 
 <mapper namespace="com.ssafy.backend.domain.member.mapper.MemberMapper">
     <!-- 내 정보 조회 -->
-    <select id="findById" parameterType="string" resultType="com.ssafy.backend.domain.member.dto.MemberDto$TestRespDto">
+    <select id="findById" parameterType="string" resultType="com.ssafy.backend.domain.member.dto.MemberDto$MyInfoDto">
         select member_id as id, name, nickname, email, addr
         from member
         where member_id=#{id}

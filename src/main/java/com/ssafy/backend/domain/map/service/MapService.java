@@ -2,8 +2,7 @@ package com.ssafy.backend.domain.map.service;
 
 import java.util.List;
 
-import com.ssafy.backend.domain.map.dto.AttractionDto.AttractionDescriptionDto;
-import com.ssafy.backend.domain.map.dto.AttractionDto.AttractioninfoDto;
+import com.ssafy.backend.domain.map.dto.AttractionDto.*;
 import com.ssafy.backend.domain.map.dto.GugunDto.GugunInfoDto;
 import com.ssafy.backend.domain.map.dto.SidoDto.SidoInfoDto;
 

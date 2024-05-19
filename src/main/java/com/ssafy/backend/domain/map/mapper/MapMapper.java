@@ -13,6 +13,6 @@ import com.ssafy.backend.domain.map.dto.SidoDto.SidoInfoDto;
 public interface MapMapper {
 	List<SidoInfoDto> sido() throws Exception;
 	List<GugunInfoDto> gugun(String sidoCode) throws Exception;
-	List<AttractioninfoDto> attractionInfo(String areaCode, String gugunCode, String contentTypeId, String keyword) throws Exception;
-	AttractionDescriptionDto attractionDescription(String contentId) throws Exception;
+	List<AttractioninfoDto> attractionInfo(String areaCode, String gugunCode, String attarctionId, String keyword) throws Exception;
+	AttractionDescriptionDto attractionDescription(String attarctionId) throws Exception;
 }

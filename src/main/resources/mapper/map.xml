@@ -31,8 +31,8 @@
 			<if test='gugunCode != null and gugunCode != "0"'>
 				AND gugun_code = #{gugunCode}
 			</if>
-			<if test='contentTypeId != null and contentTypeId != "0"'>
-				AND category_code = #{contentTypeId}
+			<if test='attarctionId != null and attarctionId != "0"'>
+				AND category_code = #{attarctionId}
 			</if>
 			<if test='keyword != null'>
 				AND title LIKE CONCAT('%', #{keyword}, '%')
@@ -40,7 +40,7 @@
 		</where>
     <choose>
 			<when
-				test='areaCode == "0" or gugunCode == "0" or contentTypeId == "0" or keyword == null'>
+				test='areaCode == "0" or gugunCode == "0" or attarctionId == "0" or keyword == null'>
 		LIMIT 30
 			</when>
 			<otherwise>
@@ -58,7 +58,7 @@
 		addr,
 		img
 		from attraction
-		where attraction_id = #{contentId}
+		where attraction_id = #{attarctionId}
 	</select>
 
 </mapper>

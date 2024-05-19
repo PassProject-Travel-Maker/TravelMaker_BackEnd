@@ -24,8 +24,8 @@ public class MapServiceImpl implements MapService{
 	}
 
 	@Override
-	public List<AttractioninfoDto> attractionInfo(String areaCode, String gugunCode, String contentTypeId, String keyword) throws Exception {
-		return mapMapper.attractionInfo(areaCode, gugunCode, contentTypeId, keyword);
+	public List<AttractioninfoDto> attractionInfo(String areaCode, String gugunCode, String attarctionId, String keyword) throws Exception {
+		return mapMapper.attractionInfo(areaCode, gugunCode, attarctionId, keyword);
 	}
 
 	@Override

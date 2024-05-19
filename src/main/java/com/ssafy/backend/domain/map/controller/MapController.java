@@ -66,9 +66,9 @@ public class MapController extends HttpServlet {
 			System.out.println("123");
 			return new ResponseEntity<Object>(
 					mapService.attractionInfo(
-							obj.get("areaCode").toString(), 
+							obj.get("sidoCode").toString(), 
 							obj.get("gugunCode").toString(), 
-							obj.get("contentTypeId").toString(), 
+							obj.get("attarctionId").toString(), 
 							obj.get("keyword").toString()
 					), 
 					headers, 

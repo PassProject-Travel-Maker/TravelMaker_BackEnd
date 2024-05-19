@@ -36,7 +36,11 @@ public class PlanServiceImpl implements PlanService {
     public void createPlan(String memberId, CreatePlanRequestDto createPlanRequestDto) {
 
         // 1. save plan
-        InsertPlanDto insertPlanDto = new InsertPlanDto(createPlanRequestDto.getTitle(), createPlanRequestDto.getDescription());
+        InsertPlanDto insertPlanDto = new InsertPlanDto(
+                createPlanRequestDto.getTitle(),
+                createPlanRequestDto.getDescription(),
+                createPlanRequestDto.getImgUrl());
+
         Member member = memberMapper.findById(memberId).toEntity();
         Plan plan = insertPlanDto.toEntity(member);
         planMapper.insertPlan(plan);

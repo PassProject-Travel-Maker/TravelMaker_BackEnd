@@ -15,9 +15,10 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 public class BaseTimeEntity {
     @CreatedDate  // Entity가 생성되어 저장될 때 시간 자동 저장
-    @Column(updatable = false)
-    private LocalDateTime createDate;
+    @Column(name = "created_date", updatable = false, nullable = false)
+    private LocalDateTime createdDate;
 
     @LastModifiedDate  // 조회된 Entity 값을 변경할 때 시간 자동 저장
+    @Column(name = "modified_date", nullable = false)
     private LocalDateTime modifiedDate;
 }

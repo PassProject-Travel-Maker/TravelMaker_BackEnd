@@ -16,6 +16,7 @@ public class PlanDto {
     public static class CreatePlanRequestDto {
         private String title;
         private String description;
+        private String imgUrl;
         private List<DayForPlanDto> dayForPlanDtoList;
     }
 
@@ -26,11 +27,13 @@ public class PlanDto {
     public static class InsertPlanDto {
         private String title;
         private String description;
+        private String imgUrl;
 
         public Plan toEntity(Member member) {
             return Plan.builder()
                     .title(this.title)
                     .description(this.description)
+                    .imgUrl(this.imgUrl)
                     .member(member)
                     .build();
         }

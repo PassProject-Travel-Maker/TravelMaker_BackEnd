@@ -10,4 +10,18 @@
         values
             (#{description}, #{member.id}, #{title}, #{imgUrl}, #{createdDate}, #{modifiedDate})
     </insert>
+
+    <select id="getMyPlan" parameterType="string" resultType="com.ssafy.backend.domain.plan.dto.PlanDto$MyPlanDto">
+        select
+            plan_id as id,
+            title,
+            description,
+            img_url as imgUrl,
+            created_date as createdDate
+        from
+            plan
+        where
+            member_id = #{memberId}
+    </select>
+
 </mapper>

@@ -84,8 +84,8 @@ public class PlanServiceImpl implements PlanService {
     }
 
     @Override
-    public List<myPlanDto> myPlanList(String id) {
-        List<myPlanDto> myPlanDtoList = planMapper.getMyPlan(id);
+    public List<MyPlanDto> myPlanList(String memberId) {
+        List<MyPlanDto> myPlanDtoList = planMapper.getMyPlan(memberId);
         return myPlanDtoList;
     }
 }

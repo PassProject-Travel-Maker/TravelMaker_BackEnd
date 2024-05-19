@@ -1,5 +1,6 @@
 package com.ssafy.backend.domain.plan.dto;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.ssafy.backend.domain.member.model.Member;
@@ -39,7 +40,15 @@ public class PlanDto {
         }
     }
 
-    public static class myPlanDto {
-
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class MyPlanDto {
+        private String id;
+        private String title;
+        private String description;
+        private String imgUrl;
+        private LocalDateTime createdDate;
     }
 }

@@ -9,5 +9,5 @@ public interface PlanMapper {
 
     void insertPlan(Plan plan);
 
-    List<myPlanDto> getMyPlan(String id);
+    List<MyPlanDto> getMyPlan(String memberId);
 }

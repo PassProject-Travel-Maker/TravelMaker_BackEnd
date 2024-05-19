@@ -7,5 +7,5 @@ import java.util.List;
 public interface PlanService {
     void createPlan(String memberId, CreatePlanRequestDto createPlanRequestDto);
 
-    List<myPlanDto> myPlanList(String id);
+    List<MyPlanDto> myPlanList(String memberId);
 }

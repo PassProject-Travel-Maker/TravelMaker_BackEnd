@@ -31,7 +31,7 @@ public class MemberController {
 		String memberId = jwtUtil.getIdFromToken(tokenHeader.substring(7));
 		System.out.println("memberId: " + memberId);
 
-		if (memberId == null)
+		if (!id.equals(memberId))
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("검증되지 않은 사용자입니다.");
 
 		// service에서 member 정보 조회
@@ -50,11 +50,11 @@ public class MemberController {
 
 		String memberId = jwtUtil.getIdFromToken(tokenHeader.substring(7));
 
-		if (memberId == null)
+		if (!id.equals(memberId))
 			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("검증되지 않은 사용자입니다.");
 
 		// service에서 member 정보 조회
-		List<myPlanDto> myPlanDtoList = planService.myPlanList(id);
+		List<MyPlanDto> myPlanDtoList = planService.myPlanList(memberId);
 		return ResponseEntity.ok(myPlanDtoList);
 	}
 

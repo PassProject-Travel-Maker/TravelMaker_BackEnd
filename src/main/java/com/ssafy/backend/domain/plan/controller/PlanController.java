@@ -48,6 +48,24 @@ public class PlanController {
         // PlanDetailResponseDto
         PlanDetailResponseDto planDetailResponseDto = planService.planDetail(id);
 
+        if(planDetailResponseDto == null)
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("찾을 수 없는 정보입니다.");
+
         return ResponseEntity.ok(planDetailResponseDto);
+    }
+
+    // 특정 여행 계획 삭제
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletePlan(
+            @PathVariable("id") Long id,
+            @RequestHeader("Authorization") String tokenHeader) {
+
+        String memberId = jwtUtil.getIdFromToken(tokenHeader.substring(7));
+        if (memberId == null)
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("삭제할 권한이 없습니다.");
+
+        String message = planService.deletePlan(id);
+
+        return ResponseEntity.ok(message);
     }
 }

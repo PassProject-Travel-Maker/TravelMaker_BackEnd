@@ -13,4 +13,6 @@ public interface PlanMapper {
 
 
     PlanDetailDto findById(Long id);
+
+    void delete(Long planId);
 }

@@ -92,7 +92,9 @@ public class PlanServiceImpl implements PlanService {
     @Override
     public PlanDetailResponseDto planDetail(Long id) {
         // 1. get Plan detail
-        Plan plan = planMapper.findById(id).toEntity();
+        PlanDetailDto planDetailDto = planMapper.findById(id);
+        if(planDetailDto == null) return null;
+        Plan plan = planDetailDto.toEntity();
 
         // 2. get Day detail
         List<DayDetailResponseDto> dayDetailResponseDtoList = dayMapper.getDayDetailList(plan.getId());
@@ -109,5 +111,29 @@ public class PlanServiceImpl implements PlanService {
         PlanDetailResponseDto planDetailResponseDto
                 = new PlanDetailResponseDto().toResponseDto(plan, dayDetailResponseDtoList);
         return planDetailResponseDto;
+    }
+
+    @Override
+    @Transactional
+    public String deletePlan(Long id) {
+        Long planId = planMapper.findById(id).getId();
+        if(planId == null) return "삭제할 여행이 없습니다.";
+
+        List<DayIdDto> dayList = dayMapper.getDayList(planId);
+        for (DayIdDto dayIdDto : dayList) {
+            Long dayId = dayIdDto.getId();
+
+            // 1. delete scheduleList
+            List<ScheduleIdDto> scheduleList = scheduleMapper.getScheduleList(dayId);
+            scheduleMapper.deleteAll(scheduleList);
+        }
+
+        // 2. delete dayList
+        dayMapper.deleteAll(dayList);
+
+        // 3. delete plan
+        planMapper.delete(planId);
+
+        return "삭제 완료";
     }
 }

@@ -17,9 +17,21 @@
             `order` as orderIndex,
             day_id as day,
             attraction_id as attraction
-        from
-            schedule
-        where
-            day_id = #{dayId}
+        from schedule
+        where day_id = #{dayId}
     </select>
+
+    <select id="getScheduleList" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.ScheduleDto$ScheduleIdDto">
+        select schedule_id as id
+        from schedule
+        where day_id = #{dayId}
+    </select>
+
+    <delete id="deleteAll" parameterType="list">
+        DELETE FROM schedule
+        WHERE schedule_id IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item.id}
+        </foreach>
+    </delete>
 </mapper>

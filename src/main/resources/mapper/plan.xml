@@ -29,4 +29,9 @@
         from plan
         where plan_id=#{id}
     </select>
+
+    <delete id="delete" parameterType="long">
+        DELETE FROM plan
+        WHERE plan_id = #{planId}
+    </delete>
 </mapper>

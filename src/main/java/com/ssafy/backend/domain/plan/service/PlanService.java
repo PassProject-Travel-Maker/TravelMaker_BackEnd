@@ -10,4 +10,6 @@ public interface PlanService {
     List<MyPlanDto> myPlanList(String memberId);
 
     PlanDetailResponseDto planDetail(Long id);
+
+    String deletePlan(Long id);
 }

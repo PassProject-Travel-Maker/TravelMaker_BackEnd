@@ -12,12 +12,22 @@
     </insert>
 
     <select id="getDayDetailList" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.DayDto$DayDetailResponseDto">
-        select
-            day_id as id,
-            num
-        from
-            day
-        where
-            plan_id = #{planId}
+        select day_id as id, num
+        from day
+        where plan_id = #{planId}
     </select>
+
+    <select id="getDayList" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.DayDto$DayIdDto">
+        select day_id as id
+        from day
+        where plan_id = #{planId}
+    </select>
+
+    <delete id="deleteAll" parameterType="list">
+        DELETE FROM day
+        WHERE day_id IN
+        <foreach item="item" index="index" collection="list" open="(" separator="," close=")">
+            #{item.id}
+        </foreach>
+    </delete>
 </mapper>

@@ -49,4 +49,12 @@ public class ScheduleDto {
 
     }
 
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class ScheduleIdDto {
+        private Long id;
+    }
+
 }

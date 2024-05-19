@@ -53,4 +53,12 @@ public class DayDto {
                     .build();
         }
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DayIdDto {
+        private Long id;
+    }
 }

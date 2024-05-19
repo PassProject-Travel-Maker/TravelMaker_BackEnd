@@ -9,4 +9,8 @@ public interface ScheduleMapper {
     void insertSchedule(List<Schedule> scheduleList);
 
     List<ScheduleDetailResponseDto> getScheduleDetailList(Long dayId);
+
+    List<ScheduleIdDto> getScheduleList(Long dayId);
+
+    void deleteAll(List<ScheduleIdDto> scheduleList);
 }

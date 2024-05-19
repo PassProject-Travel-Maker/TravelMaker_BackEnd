@@ -13,7 +13,7 @@ public class AttractionDto {
 
 	@Data
 	public static class AttractioninfoDto {
-		private Long Id;
+		private Long attractionId;
 		private int categoryCode;
 		private int gugunCode;
 		private int sidoCode;
@@ -24,6 +24,9 @@ public class AttractionDto {
 		private int recommend;
 		private double latitude;
 		private double longitude;
+		
+		
+		
 	}
 
 	@Data

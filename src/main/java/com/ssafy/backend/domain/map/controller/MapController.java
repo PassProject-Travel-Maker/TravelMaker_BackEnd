@@ -63,7 +63,7 @@ public class MapController extends HttpServlet {
 			HttpHeaders headers = new HttpHeaders();
 			headers.setContentType(MediaType.APPLICATION_JSON);
 			
-			System.out.println("123");
+
 			return new ResponseEntity<Object>(
 					mapService.attractionInfo(
 							obj.get("sidoCode").toString(), 

@@ -66,7 +66,7 @@ public class PlanServiceImpl implements PlanService {
             for (ScheduleForPlanDto scheduleForPlanDto : scheduleForPlanDtoList) {
                 Long attractionId = scheduleForPlanDto.getAttractionId();
                 InsertScheduleDto insertScheduleDto = new InsertScheduleDto(idx++);
-
+                System.out.println("하이 " + attractionId);
                 Attraction attraction = attractionMapper.findById(attractionId).toEntity();
 
                 Schedule schedule = insertScheduleDto.toEntity(attraction, day);

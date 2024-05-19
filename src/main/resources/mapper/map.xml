@@ -22,7 +22,7 @@
 
 	<select id="attractionInfo" parameterType="string"
 		resultType="com.ssafy.backend.domain.map.dto.AttractionDto$AttractioninfoDto">
-		SELECT attraction_id as id, category_code as categoryCode, gugun_code as
+		SELECT attraction_id as attractionId, category_code as categoryCode, gugun_code as
 		gugunCode, sido_code as sidoCode, title, addr, img, hit, recommend,
 		latitude, longitude FROM attraction <where>
 			<if test='areaCode != null and areaCode != "0"'>
@@ -52,7 +52,7 @@
 	<select id="attractionDescription" parameterType="string"
 		resultType="com.ssafy.backend.domain.map.dto.AttractionDto$AttractionDescriptionDto">
 		select
-		attraction_id as Id,
+		attraction_id as attractionId,
 		category_code as categoryCode,
 		title,
 		addr,

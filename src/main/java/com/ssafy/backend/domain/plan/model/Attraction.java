@@ -37,4 +37,8 @@ public class Attraction {
     private double latitude;
     private double longitude;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "attr_type")
+    protected AttrType attrType;
+
 }

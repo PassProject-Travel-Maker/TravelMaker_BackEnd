@@ -61,4 +61,22 @@ public class DayDto {
     public static class DayIdDto {
         private Long id;
     }
+
+    @Builder
+    @Getter
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class DayDetailDto {
+        private Long id;
+        private int num;
+
+        public Day toEntity(Plan plan) {
+            return Day.builder()
+                    .id(this.id)
+                    .num(this.num)
+                    .plan(plan)
+                    .build();
+        }
+    }
+
 }

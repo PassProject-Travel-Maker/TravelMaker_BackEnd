@@ -30,4 +30,10 @@
             #{item.id}
         </foreach>
     </delete>
+
+    <select id="findById" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.DayDto$DayDetailDto">
+        select day_id as id, num, plan_id as plan
+        from day
+        where day_id=#{id}
+    </select>
 </mapper>

@@ -17,9 +17,12 @@
             recommend,
             latitude,
             longitude
-        FROM
-            attraction
-        WHERE
-            attraction_id = #{id}
+        FROM attraction
+        WHERE attraction_id = #{id}
     </select>
+
+    <insert id="insertKakaoAttr" parameterType="long">
+        insert into attraction (attraction_id, attr_type)
+        values (#{attractionId}, "KAKAO")
+    </insert>
 </mapper>

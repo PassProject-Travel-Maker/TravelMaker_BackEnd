@@ -3,6 +3,8 @@ package com.ssafy.backend.domain.plan.service;
 import com.ssafy.backend.domain.map.dto.AttractionDto.*;
 import com.ssafy.backend.domain.member.mapper.MemberMapper;
 import com.ssafy.backend.domain.member.model.Member;
+import com.ssafy.backend.domain.plan.dto.Attraction2Dto;
+import com.ssafy.backend.domain.plan.dto.Attraction2Dto.*;
 import com.ssafy.backend.domain.plan.dto.DayDto.*;
 import com.ssafy.backend.domain.plan.dto.PlanDto.*;
 import com.ssafy.backend.domain.plan.dto.ScheduleDto.*;
@@ -70,10 +72,24 @@ public class PlanServiceImpl implements PlanService {
             int idx = 0;
             for (ScheduleForPlanDto scheduleForPlanDto : scheduleForPlanDtoList) {
                 Long attractionId = scheduleForPlanDto.getAttractionId();
-                InsertScheduleDto insertScheduleDto = new InsertScheduleDto(idx++);
-                System.out.println("하이 " + attractionId);
-                Attraction attraction = attractionMapper.findById(attractionId).toEntity();
+                String attrType = scheduleForPlanDto.getAttrType();
 
+                InsertScheduleDto insertScheduleDto = new InsertScheduleDto(idx++);
+
+                // 이미 디비에 있는지부터 확인
+                AttractionInfoDto attractionInfoDto = attractionMapper.findById(attractionId);
+
+                // KAKAO이고, 없다면 insert
+                if(attrType.equals("KAKAO")) {
+                    System.out.println("hi");
+                    if(attractionInfoDto == null){
+                        System.out.println("hi2");
+                        attractionMapper.insertKakaoAttr(attractionId);
+                        attractionInfoDto = attractionMapper.findById(attractionId);
+                    }
+                }
+
+                Attraction attraction = attractionInfoDto.toEntity();
                 Schedule schedule = insertScheduleDto.toEntity(attraction, day);
                 scheduleList.add(schedule);
             }

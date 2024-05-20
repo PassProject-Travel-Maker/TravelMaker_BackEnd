@@ -15,4 +15,6 @@ public interface DayMapper {
     List<DayIdDto> getDayList(Long planId);
 
     void deleteAll(List<DayIdDto> dayList);
+
+    DayDetailDto findById(Long dayId);
 }

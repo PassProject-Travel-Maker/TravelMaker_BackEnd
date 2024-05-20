@@ -26,7 +26,7 @@ public class ChatGptController {
     */
     @GetMapping("/recommend")
     public ResponseEntity<?> recommend(@RequestBody ChatGptRequestDto chatGptRequestDto) {
-        List<ChatGptResponseDto> chatGptResponseDto = chatGptService.makePrompt(chatGptRequestDto);
-        return ResponseEntity.ok(chatGptResponseDto);
+        String result = chatGptService.makePrompt(chatGptRequestDto);
+        return ResponseEntity.ok(result);
     }
 }

@@ -41,7 +41,8 @@ public class MemberController {
 
 		return ResponseEntity.ok(myInfoDto);
 	}
-
+	
+	
 	// 내 여행 계획 조회
 	@GetMapping("/myTravelList/{id}")
 	public ResponseEntity<?> myTravel(

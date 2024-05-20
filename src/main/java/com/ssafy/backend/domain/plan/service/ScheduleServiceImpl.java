@@ -31,7 +31,7 @@ public class ScheduleServiceImpl implements ScheduleService{
     private final AttractionMapper attractionMapper;
     private final ScheduleMapper scheduleMapper;
 
-    // TODO: 스케줄 추가 시 attr_type에 따른 insert 추가 등 필요
+    // TODO: 스케줄 추가 시 attr_type에 따른 insert 추가 등 필ㅎ
     @Override
     public void addSchedule(AddScheduleRequestDto addScheduleRequestDto, Long planId, Long dayId, String memberId) {
         List<AddScheduleDto> addScheuldeDtoList

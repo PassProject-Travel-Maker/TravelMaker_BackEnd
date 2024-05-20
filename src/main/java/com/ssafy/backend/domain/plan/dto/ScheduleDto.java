@@ -71,6 +71,7 @@ public class ScheduleDto {
     public static class AddScheduleDto {
         private Long attractionId;
         private String attrType;
+        private int orderIndex;
     }
 
     @Builder

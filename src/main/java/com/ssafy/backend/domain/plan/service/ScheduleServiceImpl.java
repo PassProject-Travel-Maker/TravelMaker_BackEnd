@@ -31,6 +31,7 @@ public class ScheduleServiceImpl implements ScheduleService{
     private final AttractionMapper attractionMapper;
     private final ScheduleMapper scheduleMapper;
 
+    // TODO: 스케줄 추가 시 attr_type에 따른 insert 추가 등 필요
     @Override
     public void addSchedule(AddScheduleRequestDto addScheduleRequestDto, Long planId, Long dayId, String memberId) {
         List<AddScheduleDto> addScheuldeDtoList
@@ -48,21 +49,18 @@ public class ScheduleServiceImpl implements ScheduleService{
         DayDetailDto dayDetailDto = dayMapper.findById(dayId);
         Day day = dayDetailDto.toEntity(plan);
 
-        int idx = 0;
         List<Schedule> scheduleList = new ArrayList<>();
         for (AddScheduleDto addScheduleDto : addScheuldeDtoList) {
             Long attractionId = addScheduleDto.getAttractionId();
             String attrType = addScheduleDto.getAttrType();
+            int orderIndex = addScheduleDto.getOrderIndex();
 
             // attraction 객체 생성
-            // attrType이 공공데이터(PUBLIC)인 경우
             AttractionInfoDto attractionInfoDto = attractionMapper.findById(attractionId);
             Attraction attraction = attractionInfoDto.toEntity();
 
-            // attrType이 카카오(KAKAO)인 경우
-
-
-            InsertScheduleDto insertScheduleDto = new InsertScheduleDto(idx++);
+            // schedule 객체 생성
+            InsertScheduleDto insertScheduleDto = new InsertScheduleDto(orderIndex);
             Schedule schedule = insertScheduleDto.toEntity(attraction, day);
             scheduleList.add(schedule);
         }

@@ -1,4 +1,4 @@
-package com.ssafy.backend.domain.plan.config;
+package com.ssafy.backend.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

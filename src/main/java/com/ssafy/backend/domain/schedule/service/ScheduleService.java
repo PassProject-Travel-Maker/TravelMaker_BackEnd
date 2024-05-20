@@ -1,6 +1,6 @@
-package com.ssafy.backend.domain.plan.service;
+package com.ssafy.backend.domain.schedule.service;
 
-import com.ssafy.backend.domain.plan.dto.ScheduleDto.*;
+import com.ssafy.backend.domain.schedule.dto.ScheduleDto.*;
 
 public interface ScheduleService {
 

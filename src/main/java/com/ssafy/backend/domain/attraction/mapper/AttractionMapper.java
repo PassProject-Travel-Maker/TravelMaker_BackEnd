@@ -1,6 +1,6 @@
-package com.ssafy.backend.domain.plan.mapper;
+package com.ssafy.backend.domain.attraction.mapper;
 
-import com.ssafy.backend.domain.plan.dto.Attraction2Dto.*;
+import com.ssafy.backend.domain.attraction.dto.Attraction2Dto.*;
 
 import java.util.List;
 

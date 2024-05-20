@@ -1,5 +1,6 @@
-package com.ssafy.backend.domain.plan.model;
+package com.ssafy.backend.domain.day.model;
 
+import com.ssafy.backend.domain.plan.model.Plan;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

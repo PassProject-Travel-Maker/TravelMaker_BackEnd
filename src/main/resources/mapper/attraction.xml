@@ -2,9 +2,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ssafy.backend.domain.plan.mapper.AttractionMapper">
+<mapper namespace="com.ssafy.backend.domain.attraction.mapper.AttractionMapper">
     <!-- Attraction 조회 -->
-    <select id="findById" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.Attraction2Dto$AttractionInfoDto">
+    <select id="findById" parameterType="long" resultType="com.ssafy.backend.domain.attraction.dto.Attraction2Dto$AttractionInfoDto">
         SELECT
             attraction_id as id,
             sido_code as sidoCode,
@@ -27,7 +27,7 @@
         values (#{attractionId}, "KAKAO")
     </insert>
 
-    <select id="findByScheduleId" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.Attraction2Dto$AttractionIdDto">
+    <select id="findByScheduleId" parameterType="long" resultType="com.ssafy.backend.domain.attraction.dto.Attraction2Dto$AttractionIdDto">
         select attraction_id as id
         from attraction
         where schedule_id = #{scheduleId}

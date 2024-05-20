@@ -1,4 +1,4 @@
-package com.ssafy.backend.domain.plan.dto;
+package com.ssafy.backend.domain.map.dto;
 
 import lombok.*;
 

@@ -1,6 +1,6 @@
-package com.ssafy.backend.domain.plan.service;
+package com.ssafy.backend.domain.map.service;
 
-import com.ssafy.backend.domain.plan.dto.ChatGptDto.*;
+import com.ssafy.backend.domain.map.dto.ChatGptDto.*;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
-package com.ssafy.backend.domain.plan.controller;
+package com.ssafy.backend.domain.schedule.controller;
 
-import com.ssafy.backend.domain.plan.dto.ScheduleDto.*;
-import com.ssafy.backend.domain.plan.service.ScheduleService;
+import com.ssafy.backend.domain.schedule.dto.ScheduleDto.*;
+import com.ssafy.backend.domain.schedule.service.ScheduleService;
 import com.ssafy.backend.util.JWTUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

@@ -1,5 +1,7 @@
-package com.ssafy.backend.domain.plan.model;
+package com.ssafy.backend.domain.schedule.model;
 
+import com.ssafy.backend.domain.attraction.model.Attraction;
+import com.ssafy.backend.domain.day.model.Day;
 import jakarta.persistence.*;
 import lombok.*;
 

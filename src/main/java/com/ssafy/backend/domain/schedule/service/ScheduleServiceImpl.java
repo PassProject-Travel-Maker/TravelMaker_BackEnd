@@ -1,20 +1,20 @@
-package com.ssafy.backend.domain.plan.service;
+package com.ssafy.backend.domain.schedule.service;
 
 import com.ssafy.backend.domain.member.dto.MemberDto.*;
 import com.ssafy.backend.domain.member.mapper.MemberMapper;
 import com.ssafy.backend.domain.member.model.Member;
-import com.ssafy.backend.domain.plan.dto.Attraction2Dto.*;
-import com.ssafy.backend.domain.plan.dto.DayDto.*;
+import com.ssafy.backend.domain.attraction.dto.Attraction2Dto.*;
+import com.ssafy.backend.domain.day.dto.DayDto.*;
 import com.ssafy.backend.domain.plan.dto.PlanDto.*;
-import com.ssafy.backend.domain.plan.dto.ScheduleDto.*;
-import com.ssafy.backend.domain.plan.mapper.AttractionMapper;
-import com.ssafy.backend.domain.plan.mapper.DayMapper;
+import com.ssafy.backend.domain.schedule.dto.ScheduleDto.*;
+import com.ssafy.backend.domain.attraction.mapper.AttractionMapper;
+import com.ssafy.backend.domain.day.mapper.DayMapper;
 import com.ssafy.backend.domain.plan.mapper.PlanMapper;
-import com.ssafy.backend.domain.plan.mapper.ScheduleMapper;
-import com.ssafy.backend.domain.plan.model.Attraction;
-import com.ssafy.backend.domain.plan.model.Day;
+import com.ssafy.backend.domain.schedule.mapper.ScheduleMapper;
+import com.ssafy.backend.domain.attraction.model.Attraction;
+import com.ssafy.backend.domain.day.model.Day;
 import com.ssafy.backend.domain.plan.model.Plan;
-import com.ssafy.backend.domain.plan.model.Schedule;
+import com.ssafy.backend.domain.schedule.model.Schedule;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

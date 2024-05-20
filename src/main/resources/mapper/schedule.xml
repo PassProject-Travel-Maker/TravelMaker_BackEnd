@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.ssafy.backend.domain.plan.mapper.ScheduleMapper">
+<mapper namespace="com.ssafy.backend.domain.schedule.mapper.ScheduleMapper">
     <!-- Schedule 리스트 삽입 -->
     <insert id="insertSchedule" parameterType="java.util.List">
         INSERT INTO schedule (day_id, attraction_id, `order`) VALUES
@@ -11,7 +11,7 @@
         </foreach>
     </insert>
 
-    <select id="getScheduleDetailList" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.ScheduleDto$ScheduleDetailResponseDto">
+    <select id="getScheduleDetailList" parameterType="long" resultType="com.ssafy.backend.domain.schedule.dto.ScheduleDto$ScheduleDetailResponseDto">
         select
             schedule_id as id,
             `order` as orderIndex,
@@ -21,7 +21,7 @@
         where day_id = #{dayId}
     </select>
 
-    <select id="getScheduleList" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.ScheduleDto$ScheduleIdDto">
+    <select id="getScheduleList" parameterType="long" resultType="com.ssafy.backend.domain.schedule.dto.ScheduleDto$ScheduleIdDto">
         select schedule_id as id
         from schedule
         where day_id = #{dayId}
@@ -35,7 +35,7 @@
         </foreach>
     </delete>
 
-    <select id="findAttrIdById" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.Attraction2Dto$AttractionIdDto">
+    <select id="findAttrIdById" parameterType="long" resultType="com.ssafy.backend.domain.attraction.dto.Attraction2Dto$AttractionIdDto">
         select attraction_id as id
         from schedule
         where schedule_id = #{scheduleId}

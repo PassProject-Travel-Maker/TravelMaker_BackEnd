@@ -1,8 +1,8 @@
-package com.ssafy.backend.domain.plan.mapper;
+package com.ssafy.backend.domain.schedule.mapper;
 
-import com.ssafy.backend.domain.plan.dto.ScheduleDto.*;
-import com.ssafy.backend.domain.plan.dto.Attraction2Dto.*;
-import com.ssafy.backend.domain.plan.model.Schedule;
+import com.ssafy.backend.domain.schedule.dto.ScheduleDto.*;
+import com.ssafy.backend.domain.attraction.dto.Attraction2Dto.*;
+import com.ssafy.backend.domain.schedule.model.Schedule;
 
 import java.util.List;
 

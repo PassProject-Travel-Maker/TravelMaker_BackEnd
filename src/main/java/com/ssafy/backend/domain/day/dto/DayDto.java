@@ -1,12 +1,11 @@
-package com.ssafy.backend.domain.plan.dto;
+package com.ssafy.backend.domain.day.dto;
 
-import com.ssafy.backend.domain.member.model.Member;
-import com.ssafy.backend.domain.plan.model.Day;
+import com.ssafy.backend.domain.day.model.Day;
 import com.ssafy.backend.domain.plan.model.Plan;
 import lombok.*;
 
 import java.util.List;
-import com.ssafy.backend.domain.plan.dto.ScheduleDto.*;
+import com.ssafy.backend.domain.schedule.dto.ScheduleDto.*;
 
 public class DayDto {
 

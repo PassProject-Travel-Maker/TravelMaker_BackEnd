@@ -1,6 +1,10 @@
-package com.ssafy.backend.domain.plan.dto;
+package com.ssafy.backend.domain.attraction.dto;
 
-import com.ssafy.backend.domain.plan.model.*;
+import com.ssafy.backend.domain.attraction.model.AttrType;
+import com.ssafy.backend.domain.attraction.model.Attraction;
+import com.ssafy.backend.domain.category.model.Category;
+import com.ssafy.backend.domain.gugun.model.Gugun;
+import com.ssafy.backend.domain.sido.model.Sido;
 import lombok.*;
 
 public class Attraction2Dto {

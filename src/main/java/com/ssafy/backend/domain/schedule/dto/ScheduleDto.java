@@ -1,10 +1,10 @@
-package com.ssafy.backend.domain.plan.dto;
+package com.ssafy.backend.domain.schedule.dto;
 
-import com.ssafy.backend.domain.plan.model.Attraction;
-import com.ssafy.backend.domain.plan.model.Day;
-import com.ssafy.backend.domain.plan.model.Schedule;
+import com.ssafy.backend.domain.attraction.model.Attraction;
+import com.ssafy.backend.domain.day.model.Day;
+import com.ssafy.backend.domain.schedule.model.Schedule;
 import lombok.*;
-import com.ssafy.backend.domain.plan.dto.Attraction2Dto.*;
+import com.ssafy.backend.domain.attraction.dto.Attraction2Dto.*;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.ssafy.backend.domain.plan.model;
+package com.ssafy.backend.domain.sido.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -13,12 +13,12 @@ import lombok.NoArgsConstructor;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Category {
+public class Sido {
 
     @Id
-    @Column(name = "category_code")
-    private int categoryCode;
+    @Column(name = "sido_code")
+    private int sidoCode;
 
-    @Column(name = "category_name")
-    private String categoryName;
+    @Column(name = "sido_name")
+    private String sidoName;
 }

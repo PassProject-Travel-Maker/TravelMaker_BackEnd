@@ -1,5 +1,8 @@
-package com.ssafy.backend.domain.plan.model;
+package com.ssafy.backend.domain.attraction.model;
 
+import com.ssafy.backend.domain.category.model.Category;
+import com.ssafy.backend.domain.gugun.model.Gugun;
+import com.ssafy.backend.domain.sido.model.Sido;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;

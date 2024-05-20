@@ -1,7 +1,7 @@
-package com.ssafy.backend.domain.plan.controller;
+package com.ssafy.backend.domain.map.controller;
 
-import com.ssafy.backend.domain.plan.dto.ChatGptDto.*;
-import com.ssafy.backend.domain.plan.service.ChatGptService;
+import com.ssafy.backend.domain.map.dto.ChatGptDto.*;
+import com.ssafy.backend.domain.map.service.ChatGptService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController

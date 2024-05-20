@@ -1,4 +1,4 @@
-package com.ssafy.backend.domain.plan.model;
+package com.ssafy.backend.domain.attraction.model;
 
 public enum AttrType {
     PUBLIC("PUBLIC"),

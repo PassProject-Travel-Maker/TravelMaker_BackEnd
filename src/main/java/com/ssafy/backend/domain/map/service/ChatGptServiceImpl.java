@@ -1,10 +1,7 @@
-package com.ssafy.backend.domain.plan.service;
+package com.ssafy.backend.domain.map.service;
 
-import com.ssafy.backend.domain.plan.dto.ChatGptDto.*;
+import com.ssafy.backend.domain.map.dto.ChatGptDto.*;
 import lombok.RequiredArgsConstructor;
-import lombok.Value;
-import org.apache.logging.log4j.message.Message;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
@@ -36,9 +33,9 @@ public class ChatGptServiceImpl implements ChatGptService{
                 .append("\n인원: ").append(chatGptRequestDto.getPeopleNum())
                 .append("\n예상 경비: ").append(chatGptRequestDto.getCost())
                 .append("\n추가 참고 사항: ").append(chatGptRequestDto.getEtc())
-                .append("\n각 날짜는 '1일차 : 제목' 이런 식으로, 각 장소에는 []로 감싸서 알려줘.");
+                .append("\n각 날짜는 '1일차 : 제목' 이런 식으로, 각 장소에는 [[와 ]]로 감싸서 알려줘.");
         String prompt = sb.toString();
-        System.out.println(prompt);
+//        System.out.println(prompt);
 
         PromptRequestDto promptRequestDto = new PromptRequestDto(model, prompt);
         PromptResponseDto promptResponseDto
@@ -55,6 +52,7 @@ public class ChatGptServiceImpl implements ChatGptService{
             String[] lines = paragraphs[i].split("\n", 2);
             String title = lines[0].trim();
             String recommend = lines.length > 1 ? lines[1].trim() : "";
+            recommend = recommend.replace("\n", "<br/>");   // TODO: 이건 프론트에서 하는 게 맞는 거 같기도?
 
             ChatGptResponseDto chatGptResponseDto = new ChatGptResponseDto(i, title, recommend);
             chatGptResponseDtoList.add(chatGptResponseDto);

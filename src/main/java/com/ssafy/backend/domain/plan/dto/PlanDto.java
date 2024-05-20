@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import com.ssafy.backend.domain.member.model.Member;
-import com.ssafy.backend.domain.plan.dto.DayDto.*;
+import com.ssafy.backend.domain.day.dto.DayDto.*;
 import com.ssafy.backend.domain.plan.model.Plan;
 import lombok.*;
 

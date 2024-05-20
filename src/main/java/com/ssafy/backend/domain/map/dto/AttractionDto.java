@@ -24,6 +24,7 @@ public class AttractionDto {
 		private int recommend;
 		private double latitude;
 		private double longitude;
+		private String attrType;
 		
 		
 		

@@ -7,16 +7,17 @@
     <select id="findById" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.Attraction2Dto$AttractionInfoDto">
         SELECT
             attraction_id as id,
-            sido_code as sido,
-            gugun_code as gugun,
-            category_code as category,
+            sido_code as sidoCode,
+            gugun_code as gugunCode,
+            category_code as categoryCode,
             title,
             addr,
             img,
             hit,
             recommend,
             latitude,
-            longitude
+            longitude,
+            attr_type as attrType
         FROM attraction
         WHERE attraction_id = #{id}
     </select>
@@ -25,4 +26,10 @@
         insert into attraction (attraction_id, attr_type)
         values (#{attractionId}, "KAKAO")
     </insert>
+
+    <select id="findByScheduleId" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.Attraction2Dto$AttractionIdDto">
+        select attraction_id as id
+        from attraction
+        where schedule_id = #{scheduleId}
+    </select>
 </mapper>

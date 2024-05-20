@@ -34,4 +34,11 @@
             #{item.id}
         </foreach>
     </delete>
+
+    <select id="findAttrIdById" parameterType="long" resultType="com.ssafy.backend.domain.plan.dto.Attraction2Dto$AttractionIdDto">
+        select attraction_id as id
+        from schedule
+        where schedule_id = #{scheduleId}
+    </select>
+
 </mapper>

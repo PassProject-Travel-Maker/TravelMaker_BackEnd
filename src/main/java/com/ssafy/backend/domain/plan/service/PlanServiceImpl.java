@@ -78,12 +78,11 @@ public class PlanServiceImpl implements PlanService {
 
                 // 이미 디비에 있는지부터 확인
                 AttractionInfoDto attractionInfoDto = attractionMapper.findById(attractionId);
+//                System.out.println(attractionInfoDto.getId() + " " + attractionInfoDto.getSido_code());
 
                 // KAKAO이고, 없다면 insert
                 if(attrType.equals("KAKAO")) {
-                    System.out.println("hi");
                     if(attractionInfoDto == null){
-                        System.out.println("hi2");
                         attractionMapper.insertKakaoAttr(attractionId);
                         attractionInfoDto = attractionMapper.findById(attractionId);
                     }
@@ -120,6 +119,15 @@ public class PlanServiceImpl implements PlanService {
             Long dayId = dayDetailResponseDto.getId();
             List<ScheduleDetailResponseDto> scheduleDetailResponseDtoList
                     = scheduleMapper.getScheduleDetailList(dayId);
+
+            for (ScheduleDetailResponseDto scheduleDetailResponseDto : scheduleDetailResponseDtoList) {
+                Long scheduleId = scheduleDetailResponseDto.getId();
+                AttractionIdDto attractionIdDto = scheduleMapper.findAttrIdById(scheduleId);
+
+                AttractionInfoDto attractionInfoDto = attractionMapper.findById(attractionIdDto.getId());
+                scheduleDetailResponseDto.setAttractionInfoDto(attractionInfoDto);
+            }
+
             dayDetailResponseDto.setScheduleDetailResponseDtoList(scheduleDetailResponseDtoList);
         }
 

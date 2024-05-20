@@ -42,5 +42,9 @@ public class WebConfig implements WebMvcConfigurer{
 		registry.addMapping("/plan/**")
 				.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
 				.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
+
+		registry.addMapping("/chat/**")
+				.allowedOrigins("http://localhost:5173", "http://192.168.205.63:5173")
+				.allowedMethods("GET","POST","PUT","DELETE","OPTIONS");
 	}
 }

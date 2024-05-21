@@ -12,4 +12,6 @@ public interface PlanService {
     PlanDetailResponseDto planDetail(Long id);
 
     String deletePlan(Long id);
+
+    void modifyPlan(String memberId, Long planId, CreatePlanRequestDto createPlanRequestDto);
 }

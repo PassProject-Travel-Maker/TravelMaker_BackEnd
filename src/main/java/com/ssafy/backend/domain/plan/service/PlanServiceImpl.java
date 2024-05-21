@@ -71,17 +71,19 @@ public class PlanServiceImpl implements PlanService {
             for (ScheduleForPlanDto scheduleForPlanDto : scheduleForPlanDtoList) {
                 Long attractionId = scheduleForPlanDto.getAttractionId();
                 String attrType = scheduleForPlanDto.getAttrType();
+                KakaoDto kakaoDto = scheduleForPlanDto.getKakaoDto();
 
                 InsertScheduleDto insertScheduleDto = new InsertScheduleDto(idx++);
 
                 // 이미 디비에 있는지부터 확인
                 AttractionInfoDto attractionInfoDto = attractionMapper.findById(attractionId);
-//                System.out.println(attractionInfoDto.getId() + " " + attractionInfoDto.getSido_code());
 
                 // KAKAO이고, 없다면 insert
                 if(attrType.equals("KAKAO")) {
                     if(attractionInfoDto == null){
-                        attractionMapper.insertKakaoAttr(attractionId);
+                        if(kakaoDto != null)
+                            attractionMapper.insertKakaoAttr(kakaoDto);
+
                         attractionInfoDto = attractionMapper.findById(attractionId);
                     }
                 }
@@ -157,5 +159,12 @@ public class PlanServiceImpl implements PlanService {
         planMapper.delete(planId);
 
         return "삭제 완료";
+    }
+
+    @Override
+    @Transactional
+    public void modifyPlan(String memberId, Long planId, CreatePlanRequestDto createPlanRequestDto) {
+        deletePlan(planId);
+        createPlan(memberId, createPlanRequestDto);
     }
 }

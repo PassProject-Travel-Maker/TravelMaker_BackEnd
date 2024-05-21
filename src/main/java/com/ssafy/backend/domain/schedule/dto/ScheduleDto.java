@@ -18,6 +18,7 @@ public class ScheduleDto {
     public static class ScheduleForPlanDto {
         private Long attractionId;
         private String attrType;
+        private KakaoDto kakaoDto;
     }
 
     @Builder

@@ -7,7 +7,7 @@ import java.util.List;
 public interface AttractionMapper {
     AttractionInfoDto findById(Long id);
 
-    void insertKakaoAttr(Long attractionId);
+    void insertKakaoAttr(KakaoDto kakaoDto);
 
     List<AttractionIdDto> findByScheduleId(Long scheduleId);
 }

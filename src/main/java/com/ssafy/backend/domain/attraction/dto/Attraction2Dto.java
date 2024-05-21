@@ -54,4 +54,19 @@ public class Attraction2Dto {
         private Long id;
     }
 
+    @Getter
+    @Builder
+    @NoArgsConstructor
+    @AllArgsConstructor
+    public static class KakaoDto {
+        private Long id;
+        private double latitude;
+        private double longitude;
+        private String img;
+        private int hit;
+        private int recommend;
+        private String addr;
+        private String title;
+    }
+
 }

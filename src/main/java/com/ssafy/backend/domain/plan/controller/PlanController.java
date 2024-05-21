@@ -68,4 +68,21 @@ public class PlanController {
 
         return ResponseEntity.ok(message);
     }
+
+    // 특정 여행 계획 수정
+    @PostMapping("/{id}")
+    public ResponseEntity<?> modifyPlan(
+            @PathVariable("id") Long id,
+            @RequestHeader("Authorization") String tokenHeader,
+            @RequestBody CreatePlanRequestDto createPlanRequestDto) {
+
+        String memberId = jwtUtil.getIdFromToken(tokenHeader.substring(7));
+        if (memberId == null)
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("검증되지 않은 사용자입니다.");
+
+        // 여행 계획 수정
+        planService.modifyPlan(memberId, id, createPlanRequestDto);
+
+        return ResponseEntity.ok("여행 계획 수정 성공");
+    }
 }

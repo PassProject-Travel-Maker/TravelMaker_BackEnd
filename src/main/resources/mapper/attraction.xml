@@ -22,9 +22,10 @@
         WHERE attraction_id = #{id}
     </select>
 
-    <insert id="insertKakaoAttr" parameterType="long">
-        insert into attraction (attraction_id, attr_type)
-        values (#{attractionId}, "KAKAO")
+    <!--  카카오 데이터 삽입  -->
+    <insert id="insertKakaoAttr" parameterType="com.ssafy.backend.domain.attraction.dto.Attraction2Dto$KakaoDto">
+        insert into attraction (attraction_id, attr_type, latitude, longitude, img, hit, recommend, addr, title)
+        values (#{id}, 'KAKAO', #{latitude}, #{longitude}, #{img}, #{hit}, #{recommend}, #{addr}, #{title})
     </insert>
 
     <select id="findByScheduleId" parameterType="long" resultType="com.ssafy.backend.domain.attraction.dto.Attraction2Dto$AttractionIdDto">

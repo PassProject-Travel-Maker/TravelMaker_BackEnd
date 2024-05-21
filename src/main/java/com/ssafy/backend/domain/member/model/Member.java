@@ -26,4 +26,7 @@ public class Member {
 	private String email;
 	private String addr;
 
+	@Column(name = "img_url")
+	private String imgUrl;
+
 }

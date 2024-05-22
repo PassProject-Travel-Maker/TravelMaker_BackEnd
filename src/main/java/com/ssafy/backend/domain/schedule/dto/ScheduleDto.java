@@ -45,13 +45,13 @@ public class ScheduleDto {
     public static class ScheduleDetailResponseDto {
         private Long id;
         private int orderIndex;
-        private AttractionInfoDto attractionInfoDto;
+        private AttractionInfoDto2 attractionInfoDto2;
 
-        public ScheduleDetailResponseDto toResponseDto(Schedule schedule, AttractionInfoDto attractionInfoDto) {
+        public ScheduleDetailResponseDto toResponseDto(Schedule schedule, AttractionInfoDto2 attractionInfoDto2) {
             return ScheduleDetailResponseDto.builder()
                     .id(schedule.getId())
                     .orderIndex(schedule.getOrder())
-                    .attractionInfoDto(attractionInfoDto)
+                    .attractionInfoDto2(attractionInfoDto2)
                     .build();
         }
     }

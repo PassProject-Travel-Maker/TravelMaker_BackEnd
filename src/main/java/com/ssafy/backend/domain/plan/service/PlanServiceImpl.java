@@ -124,8 +124,8 @@ public class PlanServiceImpl implements PlanService {
                 Long scheduleId = scheduleDetailResponseDto.getId();
                 AttractionIdDto attractionIdDto = scheduleMapper.findAttrIdById(scheduleId);
 
-                AttractionInfoDto attractionInfoDto = attractionMapper.findById(attractionIdDto.getId());
-                scheduleDetailResponseDto.setAttractionInfoDto(attractionInfoDto);
+                AttractionInfoDto2 attractionInfoDto2 = attractionMapper.findById2(attractionIdDto.getId());
+                scheduleDetailResponseDto.setAttractionInfoDto2(attractionInfoDto2);
             }
 
             dayDetailResponseDto.setScheduleDetailResponseDtoList(scheduleDetailResponseDtoList);

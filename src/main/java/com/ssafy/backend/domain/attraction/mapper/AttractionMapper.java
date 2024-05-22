@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface AttractionMapper {
     AttractionInfoDto findById(Long id);
+    AttractionInfoDto2 findById2(Long id);
 
     void insertKakaoAttr(KakaoDto kakaoDto);
 

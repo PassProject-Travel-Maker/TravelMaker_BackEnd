@@ -22,6 +22,24 @@
         WHERE attraction_id = #{id}
     </select>
 
+    <select id="findById2" parameterType="long" resultType="com.ssafy.backend.domain.attraction.dto.Attraction2Dto$AttractionInfoDto2">
+        SELECT
+            attraction_id as attractionId,
+            sido_code as sidoCode,
+            gugun_code as gugunCode,
+            category_code as categoryCode,
+            title,
+            addr,
+            img,
+            hit,
+            recommend,
+            latitude,
+            longitude,
+            attr_type as attrType
+        FROM attraction
+        WHERE attraction_id = #{attractionId}
+    </select>
+
     <!--  카카오 데이터 삽입  -->
     <insert id="insertKakaoAttr" parameterType="com.ssafy.backend.domain.attraction.dto.Attraction2Dto$KakaoDto">
         insert into attraction (attraction_id, attr_type, latitude, longitude, img, hit, recommend, addr, title)
